@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monster Flip</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="niebla"></div>
+  <div class="flotantes">
+    <span>👻</span>
+    <span>🦇</span>
+    <span>🎃</span>
+    <span>👻</span>
+    <span>🦇</span>
+    <span>🎃</span>
+  </div>
+
+  <audio id="musica" src="musica.mp3" autoplay loop muted></audio>
+  <audio id="sonidoVoltear" src="voltear.mp3"></audio>
+
+  <div id="bienvenida">
+    <div class="flotantes-bienvenida">
+      <span>👻</span>
+      <span>💀</span>
+      <span>🕷️</span>
+      <span>🌙</span>
+      <span>🦇</span>
+      <span>🎃</span>
+      <span>⭐</span>
+      <span>👻</span>
+    </div>
+  
+    <div class="tarjeta-bienvenida">
+      <p class="saludo">¡Bienvenidos a</p>
+  
+      <div class="logo" aria-label="Monster Flip">
+        <div class="linea">
+          <span style="--i:0">M</span><span style="--i:1">o</span><span style="--i:2">n</span><span style="--i:3">s</span><span style="--i:4">t</span><span style="--i:5">e</span><span style="--i:6">r</span>
+        </div>
+        <div class="linea">
+          <span style="--i:7">F</span><span style="--i:8">l</span><span style="--i:9">i</span><span style="--i:10">p</span>
+        </div>
+      </div>
+  
+      <p class="descripcion">
+        Dos jugadores se turnan para voltear cartas y sumar puntos con cada monstruo.
+        Cuidado con el hielo y con la mitad del tablero.
+      </p>
+      <button id="btnJugar">¡Jugar!</button>
+    </div>
+  </div>
+
+  <div id="instrucciones" class="oculta">
+    <div class="tarjeta-instrucciones">
+      <h2>Instrucciones</h2>
+
+      <h3>Cómo se juega</h3>
+      <p>Los jugadores se turnan para destapar una carta del tablero. Cada monstruo suma sus puntos al jugador que lo destapa. Cuando se destapan las 16 cartas, termina la partida.</p>
+
+      <h3>Reglas especiales</h3>
+      <p><strong>Intercambio.</strong> Cada 4 jugadas exitosas, dos cartas al azar cambian de lugar.</p>
+      <p><strong>Hielo.</strong> Si destapas un monstruo de hielo no sumas puntos, pierdes tu siguiente turno y la pantalla se pone roja mientras dura.</p>
+      <p><strong>Inversión.</strong> Al llegar a la mitad del tablero, gana quien tenga MENOS puntos.</p>
+
+      <button id="btnCerrar">¡Entendido!</button>
+    </div>
+  </div>
+
+  <div id="barra-botones">
+    <button class="btn-icono" id="btnInstrucciones" title="Instrucciones">❓</button>
+    <button class="btn-icono" id="btnMusica" title="Música">🔇</button>
+  </div>
+
+  <header>
+    <h1 class="logo logo-juego" aria-label="Monster Flip">
+        <span class="linea">
+          <span style="--i:0">M</span><span style="--i:1">o</span><span style="--i:2">n</span><span style="--i:3">s</span><span style="--i:4">t</span><span style="--i:5">e</span><span style="--i:6">r</span>
+          <i class="espacio"></i>
+          <span style="--i:7">F</span><span style="--i:8">l</span><span style="--i:9">i</span><span style="--i:10">p</span>
+        </span>
+      </h1>
+    <p class="subtitulo">Voltea cartas, suma puntos y cuidado con el hielo</p>
+  </header>
+
+  <div id="juego">
+
+    <aside class="panel" id="panelIzquierdo">
+      <div class="jugador" id="jugador1">
+        <h2>Jugador 1</h2>
+        <p class="puntos"><span id="puntos1">0</span> pts</p>
+      </div>
+      <div class="jugador" id="jugador2">
+        <h2>Jugador 2</h2>
+        <p class="puntos"><span id="puntos2">0</span> pts</p>
+      </div>
+
+      <h3>Estadísticas</h3>
+      <ul id="estadisticas">
+        <li>Cartas destapadas <strong id="statCartas">0 de 16</strong></li>
+        <li>Jugadas exitosas <strong id="statJugadas">0</strong></li>
+        <li>Próximo intercambio <strong id="statIntercambio">en 4 jugada(s)</strong></li>
+        <li>Gana quien tenga <strong id="statModo">Más puntos</strong></li>
+      </ul>
+    </aside>
+
+    <main>
+      <p id="mensaje">Si ves este texto, el archivo juego.js no se cargó.</p>
+      <div id="tablero"></div>
+      <button id="btnReiniciar">Reiniciar juego</button>
+    </main>
+
+  </div>
+
+  <script src="juego.js"></script>
+</body>
+</html>
